@@ -35,15 +35,17 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
+    const form = new FormData();
+    form.append("name", formData.name);
+    form.append("email", formData.email);
+    form.append("message", formData.message);
+
     try {
-      await fetch(
-        "https://script.google.com/macros/s/AKfycbzYm-6_bSN4RuHL9w8sZhgrPNHIJRYdMwL7Y-jyVqm5QJjG1VGwtUJ57IbnstET3n8a/exec",
+      const response = await fetch(
+        "https://script.google.com/macros/s/AKfycbwoenaqBf5rOvcwNxjGVFogeVabCUwU5A4hen05fjlOczDnl_8QiK0Jansw-3XDeqaB/exec",
         {
           method: "POST",
-          body: JSON.stringify(formData),
-          headers: {
-            "Content-Type": "application/json",
-          },
+          body: form,
         }
       );
 
