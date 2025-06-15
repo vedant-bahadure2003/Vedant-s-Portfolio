@@ -168,15 +168,18 @@ const Hero = () => {
                 <span className="relative">
                   <motion.span
                     key={displayText}
-                    initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     className="text-blue-600 dark:text-blue-400 font-bold"
                   >
                     {displayText}
                   </motion.span>
                   <motion.span
-                    animate={{ opacity: [1, 0, 1] }}
-                    transition={{ duration: 1, repeat: Infinity }}
+                    animate={{ opacity: [1, 1, 0, 0, 1, 1] }}
+                    transition={{
+                      duration: 1,
+                      repeat: Infinity,
+                      ease: "linear",
+                    }}
                     className="text-blue-600 dark:text-blue-400"
                   >
                     |
