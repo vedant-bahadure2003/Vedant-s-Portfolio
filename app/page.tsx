@@ -1,27 +1,27 @@
-'use client'
+"use client";
 
-import { useEffect, useState } from 'react'
-import Header from './components/Header'
-import Hero from './components/Hero'
-import About from './components/About'
-import Education from './components/Education'
-import Skills from './components/Skills'
-import Experience from './components/Experience'
-import Projects from './components/Projects'
-import Certifications from './components/Certifications'
-import Contact from './components/Contact'
-import Footer from './components/Footer'
-import ParticleBackground from './components/ParticleBackground'
+import { useEffect, useState } from "react";
+import Header from "./components/Header";
+import Hero from "./components/Hero";
+import About from "./components/About";
+import Education from "./components/Education";
+import Skills from "./components/Skills";
+import Experience from "./components/Experience";
+import Projects from "./components/Projects";
+import Certifications from "./components/Certifications";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
+import ParticleBackground from "./components/ParticleBackground";
 
 export default function Home() {
-  const [mounted, setMounted] = useState(false)
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true)
-  }, [])
+    setMounted(true);
+  }, []);
 
   if (!mounted) {
-    return null
+    return null;
   }
 
   return (
@@ -31,14 +31,14 @@ export default function Home() {
       <main className="relative z-10">
         <Hero />
         <About />
-        <Education />
         <Skills />
         <Experience />
         <Projects />
         <Certifications />
+        <Education />
         <Contact />
       </main>
       <Footer />
     </div>
-  )
+  );
 }
