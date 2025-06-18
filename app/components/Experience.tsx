@@ -150,18 +150,18 @@ const Experience = () => {
           <div className="relative z-10">
             <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-8">
               <div className="flex items-start space-x-6">
-                <motion.div
-                  whileHover={{ rotate: 360, scale: 1.1 }}
-                  transition={{ duration: 0.5 }}
-                  className="p-4 bg-blue-100 dark:bg-blue-900/30 rounded-2xl"
-                >
-                  <Briefcase
-                    className="text-blue-600 dark:text-blue-400"
-                    size={32}
-                  />
-                </motion.div>
                 <div>
                   <div className="flex flex-wrap items-center gap-4 mb-4">
+                    <motion.div
+                      whileHover={{ rotate: 360, scale: 1.1 }}
+                      transition={{ duration: 0.5 }}
+                      className="p-4 bg-blue-100 dark:bg-blue-900/30 rounded-2xl"
+                    >
+                      <Briefcase
+                        className="text-blue-600 dark:text-blue-400"
+                        size={32}
+                      />
+                    </motion.div>
                     <h3 className="text-3xl font-bold text-gray-900 dark:text-white">
                       Full-Stack Developer Intern
                     </h3>
@@ -229,17 +229,23 @@ const Experience = () => {
                     >
                       <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-6">
                         <div className="flex items-start space-x-4 mb-4 lg:mb-0">
-                          <motion.div
-                            whileHover={{ rotate: 360 }}
-                            transition={{ duration: 0.5 }}
-                            className={`p-3 bg-gradient-to-r ${project.color} rounded-xl`}
-                          >
-                            <IconComponent className="text-white" size={24} />
-                          </motion.div>
                           <div>
-                            <h5 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200">
-                              {project.name}
+                            <h5 className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200">
+                              <motion.div
+                                whileHover={{ rotate: 360 }}
+                                transition={{ duration: 0.5 }}
+                                className={`p-3 bg-gradient-to-r ${project.color} rounded-xl`}
+                              >
+                                <IconComponent
+                                  className="text-white"
+                                  size={24}
+                                />
+                              </motion.div>
+                              <span className="text-center sm:text-left">
+                                {project.name}
+                              </span>
                             </h5>
+
                             <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
                               {project.description}
                             </p>
@@ -296,7 +302,7 @@ const Experience = () => {
                                   target="_blank"
                                   rel="noopener noreferrer"
                                   whileHover={{ x: 4 }}
-                                  className="text-sm text-blue-600 dark:text-blue-400 hover:underline flex items-center space-x-2"
+                                  className="text-sm text-blue-600 dark:text-blue-400 hove  r:underline flex items-center space-x-2"
                                 >
                                   <ExternalLink size={14} />
                                   <span>{link.name}</span>
