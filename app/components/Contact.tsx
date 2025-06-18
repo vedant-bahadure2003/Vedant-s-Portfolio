@@ -1,5 +1,5 @@
 "use client";
-
+import React, { FormEvent } from "react";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import {
@@ -11,6 +11,7 @@ import {
   MessageCircle,
   User,
   AtSign,
+  AlertCircle,
 } from "lucide-react";
 
 const Contact = () => {
@@ -21,41 +22,59 @@ const Contact = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+    // Clear error when user starts typing
+    if (error) setError(null);
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setError(null);
 
-    const form = new FormData();
-    form.append("name", formData.name);
-    form.append("email", formData.email);
-    form.append("message", formData.message);
+    const submitData = {
+      fullName: formData.name, // Map 'name' to 'fullName'
+      email: formData.email,
+      message: formData.message,
+    };
+
+    const url =
+      "https://script.google.com/macros/s/AKfycbyzsWTgHkAuy9OTERZ8BiVeRmSBh6PmusDkqw6Vc_eLhgsDid3Y1rfnqpcDnclwCTV0/exec";
 
     try {
-      const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbyWiQDFS0LlTAZC3PWsAAl_ZeNDj3BtTvU_Ui5hsJgM05vjuBq0g33Ko157qxQTwCiY/exec",
-        {
-          method: "POST",
-          body: form,
-        }
-      );
+      const response = await fetch(url, {
+        method: "POST",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(submitData),
+      });
 
-      setIsSubmitting(false);
-      setIsSubmitted(true);
-      setFormData({ name: "", email: "", message: "" });
+      const result = await response.json();
 
-      setTimeout(() => setIsSubmitted(false), 5000);
-    } catch (error) {
-      console.error("Submission error:", error);
+      if (result.status === "success") {
+        setIsSubmitted(true);
+        setFormData({ name: "", email: "", message: "" }); // Reset form data
+
+        // Optional: redirect after showing success message
+        setTimeout(() => {
+          if (typeof window !== "undefined") {
+            window.location.href = "/details-page.html";
+          }
+        }, 2000);
+      } else {
+        throw new Error(result.message || "Failed to send message");
+      }
+    } catch (error: any) {
+      console.error("Form submission error:", error);
+      setError(error.message || "Failed to send message. Please try again.");
+    } finally {
       setIsSubmitting(false);
     }
   };
@@ -287,6 +306,22 @@ const Contact = () => {
               </motion.div>
             )}
 
+            {error && (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="mb-8 p-6 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-2xl flex items-center space-x-4"
+              >
+                <AlertCircle
+                  className="text-red-600 dark:text-red-400"
+                  size={24}
+                />
+                <span className="text-red-800 dark:text-red-300 font-medium">
+                  {error}
+                </span>
+              </motion.div>
+            )}
+
             <form onSubmit={handleSubmit} className="space-y-8">
               <motion.div whileHover={{ scale: 1.02 }} className="relative">
                 <label
@@ -307,7 +342,8 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full pl-12 pr-4 py-4 border border-gray-300 dark:border-dark-500 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-white dark:bg-dark-600 text-gray-900 dark:text-white"
+                    disabled={isSubmitting}
+                    className="w-full pl-12 pr-4 py-4 border border-gray-300 dark:border-dark-500 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-white dark:bg-dark-600 text-gray-900 dark:text-white disabled:opacity-50 disabled:cursor-not-allowed"
                     placeholder="John Doe"
                   />
                 </div>
@@ -332,7 +368,8 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full pl-12 pr-4 py-4 border border-gray-300 dark:border-dark-500 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-white dark:bg-dark-600 text-gray-900 dark:text-white"
+                    disabled={isSubmitting}
+                    className="w-full pl-12 pr-4 py-4 border border-gray-300 dark:border-dark-500 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-white dark:bg-dark-600 text-gray-900 dark:text-white disabled:opacity-50 disabled:cursor-not-allowed"
                     placeholder="john@example.com"
                   />
                 </div>
@@ -357,7 +394,8 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     rows={6}
-                    className="w-full pl-12 pr-4 py-4 border border-gray-300 dark:border-dark-500 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-white dark:bg-dark-600 text-gray-900 dark:text-white resize-none"
+                    disabled={isSubmitting}
+                    className="w-full pl-12 pr-4 py-4 border border-gray-300 dark:border-dark-500 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 bg-white dark:bg-dark-600 text-gray-900 dark:text-white resize-none disabled:opacity-50 disabled:cursor-not-allowed"
                     placeholder="Tell me about your project or just say hello!"
                   />
                 </div>
@@ -366,8 +404,8 @@ const Contact = () => {
               <motion.button
                 type="submit"
                 disabled={isSubmitting}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: isSubmitting ? 1 : 1.05 }}
+                whileTap={{ scale: isSubmitting ? 1 : 0.95 }}
                 className={`w-full py-4 px-8 rounded-xl font-semibold flex items-center justify-center space-x-3 transition-all duration-300 ${
                   isSubmitting
                     ? "bg-gray-400 cursor-not-allowed"
@@ -376,12 +414,7 @@ const Contact = () => {
               >
                 {isSubmitting ? (
                   <>
-                    <div className="loading-dots">
-                      <div></div>
-                      <div></div>
-                      <div></div>
-                      <div></div>
-                    </div>
+                    <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
                     <span>Sending...</span>
                   </>
                 ) : (
