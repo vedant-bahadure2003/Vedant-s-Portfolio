@@ -91,7 +91,7 @@ const About = () => {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.2 }}
             variants={containerVariants}
             className="space-y-8"
           >
