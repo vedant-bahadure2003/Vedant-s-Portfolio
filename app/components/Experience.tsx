@@ -15,7 +15,7 @@ import {
 const Experience = () => {
   const projects = [
     {
-      name: "Uzbekistan MBBS Consultancy Website",
+      name: "MBBS Consultancy Websites",
       url: "uzbekistanmedi.com",
       description:
         "Developed a comprehensive consultancy platform using Next.js with focus on performance , SEO (Search Engine Optimization) and user engagement",
@@ -257,10 +257,33 @@ const Experience = () => {
                           rel="noopener noreferrer"
                           whileHover={{ scale: 1.05 }}
                           whileTap={{ scale: 0.95 }}
-                          className="inline-flex items-center space-x-2 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium bg-blue-50 dark:bg-blue-900/20 px-4 py-2 rounded-lg hover:bg-blue-100 dark:hover:bg-blue-900/30 transition-all duration-200"
+                          className="inline-flex flex-col items-center   text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium bg-blue-50 dark:bg-blue-900/20 px-4 py-2 rounded-lg hover:bg-blue-100 dark:hover:bg-blue-900/30 transition-all duration-200"
                         >
-                          <span>{project.url}</span>
-                          <ExternalLink size={16} />
+                          <span className="flex items-center gap-1 text-sm">
+                            {" "}
+                            <ExternalLink size={16} /> {project.url}
+                          </span>
+
+                          {project.relatedLinks && (
+                            <div className="pt-1">
+                              <ul className="space-y-2">
+                                {project.relatedLinks.map((link, i) => (
+                                  <li key={i}>
+                                    <motion.a
+                                      href={link.url}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      whileHover={{ x: 4 }}
+                                      className="text-sm text-blue-600 dark:text-blue-400 hove  r:underline gap-1 flex items-center space-x-0"
+                                    >
+                                      <ExternalLink size={14} />
+                                      <span>{link.name}</span>
+                                    </motion.a>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
                         </motion.a>
                       </div>
 
@@ -288,30 +311,6 @@ const Experience = () => {
                           )
                         )}
                       </div>
-
-                      {project.relatedLinks && (
-                        <div className="pt-4">
-                          <h6 className="font-semibold text-gray-900 dark:text-white mb-2">
-                            Related Websites
-                          </h6>
-                          <ul className="space-y-2">
-                            {project.relatedLinks.map((link, i) => (
-                              <li key={i}>
-                                <motion.a
-                                  href={link.url}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  whileHover={{ x: 4 }}
-                                  className="text-sm text-blue-600 dark:text-blue-400 hove  r:underline flex items-center space-x-2"
-                                >
-                                  <ExternalLink size={14} />
-                                  <span>{link.name}</span>
-                                </motion.a>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      )}
                     </motion.div>
                   );
                 })}

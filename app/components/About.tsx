@@ -62,7 +62,7 @@ const About = () => {
         />
       </div>
 
-      <div className="max-w-7xl mx-auto px-0    sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -86,14 +86,14 @@ const About = () => {
           </motion.p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 w-[90%] mx-auto  gap-16 justify-center  items-center">
+        <div className="grid lg:grid-cols-2  mx-auto  gap-16 justify-center  items-center">
           {/* Left Column - Professional Summary */}
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
             variants={containerVariants}
-            className="space-y-8"
+            className="space-y-8  w-[95%] mx-auto"
           >
             <motion.div variants={itemVariants}>
               <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-6">
@@ -142,7 +142,7 @@ const About = () => {
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
             variants={containerVariants}
-            className="space-y-8"
+            className="space-y-8  w-[95%] mx-auto"
           >
             {/* Personal Details Card */}
             <motion.div
@@ -168,12 +168,12 @@ const About = () => {
                   <motion.div
                     key={index}
                     whileHover={{ x: 5 }}
-                    className="flex justify-between items-center py-3 px-4 rounded-xl hover:bg-gray-50 dark:hover:bg-dark-600 transition-all duration-200"
+                    className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 sm:gap-4 py-3 px-4 rounded-xl hover:bg-gray-50 dark:hover:bg-dark-600 transition-all duration-200"
                   >
-                    <span className="font-medium text-gray-700 dark:text-gray-300">
-                      {item.label}
+                    <span className="font-medium text-gray-700 dark:text-gray-300 sm:w-40">
+                      {item.label}:
                     </span>
-                    <span className="text-gray-600 dark:text-gray-400">
+                    <span className="text-gray-600 dark:text-gray-400 sm:flex-1 text-left sm:text-right">
                       {item.value}
                     </span>
                   </motion.div>
