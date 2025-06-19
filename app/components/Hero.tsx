@@ -11,6 +11,7 @@ import {
   Download,
   Sparkles,
 } from "lucide-react";
+import Image from "next/image";
 
 const Hero = () => {
   const [displayText, setDisplayText] = useState("");
@@ -108,7 +109,7 @@ const Hero = () => {
             initial={{ scale: 0, rotate: -180 }}
             animate={{ scale: 1, rotate: 0 }}
             transition={{ duration: 0.8, type: "spring", bounce: 0.4 }}
-            className="relative mx-auto w-40 h-40"
+            className="relative mx-auto w-48 h-48"
           >
             <div className="w-full h-full bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white text-5xl font-bold shadow-2xl relative overflow-hidden">
               <motion.div
@@ -116,7 +117,14 @@ const Hero = () => {
                 transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
                 className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
               />
-              VB
+
+              <Image
+                src="/Vedant-Bahadure.png"
+                alt="Vedant-Bahadure"
+                width={200}
+                height={200}
+                className="object-cover"
+              />
             </div>
             <motion.div
               animate={{ rotate: -360 }}
