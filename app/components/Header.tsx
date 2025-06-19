@@ -69,9 +69,9 @@ const Header = () => {
             animate={{ opacity: 1, x: 0 }}
             className="flex-shrink-0"
           >
-            <h1 className="text-2xl font-bold gradient-text dark:gradient-text-dark">
+            <h2 className="text-2xl font-bold gradient-text dark:gradient-text-dark">
               Vedant Bahadure
-            </h1>
+            </h2>
           </motion.div>
 
           {/* Desktop Navigation */}

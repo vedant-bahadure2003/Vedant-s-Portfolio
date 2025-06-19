@@ -37,48 +37,50 @@ const Contact = () => {
     setIsSubmitting(true);
     setError(null);
 
-    const submitData = {
-      fullName: formData.name, // Map 'name' to 'fullName'
-      email: formData.email,
-      message: formData.message,
-    };
+    // Use FormData instead of JSON - sometimes works better with Google Apps Script
+    const formDataObj = new FormData();
+    formDataObj.append("FullName", formData.name);
+    formDataObj.append("Email", formData.email);
+    formDataObj.append("Message", formData.message);
 
     const url =
-      "https://script.google.com/macros/s/AKfycbyzsWTgHkAuy9OTERZ8BiVeRmSBh6PmusDkqw6Vc_eLhgsDid3Y1rfnqpcDnclwCTV0/exec";
+      "https://script.google.com/macros/s/AKfycby1A5mmIO-dygxV35LF0NMP-D3ylhRPyyu3LnKdmIpccwe1Gj4RxsWmF-Y9CtaQkXyxqQ/exec";
 
     try {
       const response = await fetch(url, {
         method: "POST",
-        mode: "cors",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(submitData),
+        body: formDataObj, // No headers needed for FormData
       });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
 
       const result = await response.json();
 
-      if (result.status === "success") {
+      if (result.status === "success" || result.result === "success") {
         setIsSubmitted(true);
-        setFormData({ name: "", email: "", message: "" }); // Reset form data
+        setFormData({ name: "", email: "", message: "" });
 
-        // Optional: redirect after showing success message
         setTimeout(() => {
           if (typeof window !== "undefined") {
-            window.location.href = "/details-page.html";
+            window.location.href = "/";
           }
         }, 2000);
       } else {
-        throw new Error(result.message || "Failed to send message");
+        throw new Error(
+          result.message || result.error || "Failed to send message"
+        );
       }
     } catch (error: any) {
       console.error("Form submission error:", error);
-      setError(error.message || "Failed to send message. Please try again.");
+      setError(
+        "Failed to send message. Please try again or contact me directly via email."
+      );
     } finally {
       setIsSubmitting(false);
     }
   };
-
   const contactInfo = [
     {
       icon: Mail,

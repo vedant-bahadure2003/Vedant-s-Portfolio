@@ -51,7 +51,7 @@ const Projects = () => {
 
       color: "emerald",
       gradient: "from-emerald-500 via-teal-500 to-cyan-500",
-      technologies: ["HTML", "CSS", "Tailwind CSS", "JavaScript"],
+      technologies: ["HTML", "CSS", "Tailwind CSS", "JavaScript", "React.js"],
       features: [
         "BMI calculator integrated to generate dietary suggestions",
         "Personalized meal planning system",
@@ -71,7 +71,7 @@ const Projects = () => {
 
       color: "purple",
       gradient: "from-purple-500 via-pink-500 to-rose-500",
-      technologies: ["HTML", "CSS", "Bootstrap", "JavaScript"],
+      technologies: ["HTML", "CSS", "Bootstrap", "JavaScript", "React.js"],
       features: [
         "Enhanced UX for local community event discovery",
         "Event listing and management system",
