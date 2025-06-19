@@ -7,19 +7,40 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Build output
+.next
+out
 dist
 dist-ssr
+coverage
+
+# Dependency directories
+node_modules/
+
+# Local env files
+.env
+.env.*.local
 *.local
 
-# Editor directories and files
+# Misc
+.DS_Store
 .vscode/*
 !.vscode/extensions.json
 .idea
-.DS_Store
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
-.env
+
+# Optional: TypeScript
+*.tsbuildinfo
+
+# Optional: vercel deployments
+.vercel
