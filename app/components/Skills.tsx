@@ -17,12 +17,17 @@ const Skills = () => {
     { name: "HTML5", level: 95, color: "from-orange-500 to-red-500" },
     { name: "CSS3", level: 90, color: "from-blue-500 to-cyan-500" },
     { name: "JavaScript", level: 88, color: "from-yellow-500 to-orange-500" },
+    { name: "TypeScript", level: 84, color: "from-sky-500 to-blue-600" },
     { name: "React", level: 92, color: "from-blue-400 to-blue-600" },
     { name: "Next.js", level: 85, color: "from-gray-700 to-gray-900" },
     { name: "Tailwind CSS", level: 93, color: "from-teal-400 to-blue-500" },
     { name: "Bootstrap", level: 87, color: "from-purple-500 to-purple-700" },
     { name: "Material UI", level: 82, color: "from-blue-600 to-indigo-600" },
+    { name: "Node.js", level: 86, color: "from-green-500 to-green-700" },
+    { name: "Express.js", level: 83, color: "from-gray-600 to-gray-800" },
     { name: "MongoDB", level: 78, color: "from-green-500 to-green-700" },
+    { name: "SQL", level: 75, color: "from-indigo-500 to-indigo-700" },
+    { name: "Python", level: 80, color: "from-yellow-600 to-yellow-800" },
     { name: "SEO", level: 80, color: "from-pink-500 to-rose-500" },
   ];
 
@@ -161,7 +166,7 @@ const Skills = () => {
                   key={index}
                   variants={itemVariants}
                   whileHover={{ scale: 1.02 }}
-                  className="bg-white dark:bg-dark-700 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300"
+                  className="bg-white dark:bg-dark-700 rounded-2xl p-4 shadow-lg hover:shadow-xl transition-all duration-300"
                 >
                   <div className="flex justify-between items-center mb-3">
                     <span className="font-semibold text-gray-900 dark:text-white text-lg">

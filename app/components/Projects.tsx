@@ -9,6 +9,7 @@ import {
   Calendar,
   Sparkles,
   Zap,
+  Pill,
   Globe,
   Code,
 } from "lucide-react";
@@ -41,6 +42,35 @@ const Projects = () => {
       type: "Machine Learning",
       status: "Featured",
     },
+    {
+      title: "Medical Finder",
+      subtitle: "MERN + Next.js Full-Stack Application",
+      description:
+        "A full-stack medical finder platform connecting users with nearby medical stores stocking requested medicines, with geolocation-powered search and real-time updates.",
+      icon: Pill, // Replace with the appropriate icon you're using
+      projectUrl: "https://github.com/vedant-bahadure2003/MediFind", // Update URL if different
+      color: "green",
+      gradient: "from-green-500 via-emerald-500 to-teal-500",
+      technologies: [
+        "Next.js",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "Tailwind CSS",
+        "JWT",
+        "Google Maps API",
+      ],
+      features: [
+        "Geolocation-based medical store search",
+        "Distance-based sorting for optimal results",
+        "Real-time medicine availability updates using MongoDB",
+        "Admin dashboard for store management and inventory control",
+        "Secure JWT authentication for admin access",
+      ],
+      type: "MERN Application",
+      status: "Featured",
+    },
+
     {
       title: "BalancedBite by VedFits",
       subtitle: "Personalized Dietary Platform",
@@ -94,6 +124,16 @@ const Projects = () => {
           "bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600",
         border: "border-blue-200 dark:border-blue-800",
       },
+      green: {
+        bg: "from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/20",
+        icon: "bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400",
+        badge:
+          "bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300",
+        button:
+          "bg-green-600 hover:bg-green-700 dark:bg-green-500 dark:hover:bg-green-600",
+        border: "border-green-200 dark:border-green-800",
+      },
+
       emerald: {
         bg: "from-emerald-50 to-emerald-100 dark:from-emerald-900/20 dark:to-emerald-800/20",
         icon: "bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400",

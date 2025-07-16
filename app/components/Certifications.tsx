@@ -90,7 +90,7 @@ const Certifications = () => {
 
                 <div className="flex-1">
                   <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-3">
-                    Front-End Developer Certification
+                    Felix It Front-End Developer Certification
                   </h3>
                   <motion.div
                     animate={{ scale: [1, 1.05, 1] }}
