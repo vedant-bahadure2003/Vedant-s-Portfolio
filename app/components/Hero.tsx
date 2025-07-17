@@ -109,7 +109,7 @@ const Hero = () => {
             initial={{ scale: 0, rotate: -180 }}
             animate={{ scale: 1, rotate: 0 }}
             transition={{ duration: 0.8, type: "spring", bounce: 0.4 }}
-            className="relative mx-auto w-48 h-48 "
+            className="relative mx-auto w-28 h-28 sm:w-48 sm:h-48 "
           >
             <div className="w-full h-full bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white text-5xl font-bold shadow-2xl relative overflow-hidden">
               <motion.div
@@ -141,7 +141,7 @@ const Hero = () => {
               transition={{ delay: 0.3, duration: 0.8 }}
             >
               <motion.h1
-                className="text-4xl sm:text-5xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-4"
+                className="text-3xl sm:text-5xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-4"
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
