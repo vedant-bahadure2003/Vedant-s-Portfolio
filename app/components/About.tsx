@@ -104,34 +104,32 @@ const About = () => {
             <motion.div variants={itemVariants} className="space-y-6  ">
               <motion.p
                 whileHover={{ x: 10 }}
-                className=" text-gray-600 dark:text-gray-300  text-lg leading-relaxed p-6  bg-white dark:bg-dark-700 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-blue-500"
+                className=" text-gray-600 dark:text-gray-300  text-lg leading-relaxed p-6  bg-white dark:bg-dark-700 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-blue-500 "
               >
-                I'm a dedicated Computer Science student with a passion for
-                creating exceptional digital experiences. My journey in web
-                development started with curiosity and has evolved into a deep
-                commitment to building user-centered applications that make a
-                difference.
+                I am a Computer Science student and Full-Stack Developer
+                passionate about creating impactful and user-centered digital
+                solutions. My journey in web development started with curiosity
+                and has grown into a commitment to building applications that
+                are both functional and engaging.
               </motion.p>
 
               <motion.p
                 whileHover={{ x: 10 }}
                 className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed p-6 bg-white dark:bg-dark-700 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-purple-500"
               >
-                Currently working as a Full-Stack Developer Intern at Infusyx
-                Services, where I've contributed to multiple high-impact
-                projects including consultancy platforms, university websites,
-                and corporate web solutions. I specialize in modern web
-                technologies like React, Next.js, and Tailwind CSS.
+                On the frontend, I work with React.js, Next.js, and Tailwind CSS
+                to design responsive, accessible, and performance-driven
+                interfaces. On the backend, I specialize in Node.js, Express.js,
+                and SQL/MongoDB.
               </motion.p>
 
               <motion.p
                 whileHover={{ x: 10 }}
                 className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed p-6 bg-white dark:bg-dark-700 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border-l-4 border-emerald-500"
               >
-                My approach combines technical expertise with creative
-                problem-solving, always focusing on performance, accessibility,
-                and user experience. I believe in writing clean, maintainable
-                code and staying updated with the latest industry trends.
+                I also have strong experience in API development and
+                integration, including third-party services like payment
+                gateways and scheduling tools.
               </motion.p>
             </motion.div>
           </motion.div>

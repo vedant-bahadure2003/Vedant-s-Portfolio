@@ -211,7 +211,7 @@ const Hero = () => {
             with modern technologies. Currently building amazing digital
             experiences at{" "}
             <span className="text-purple-600 dark:text-purple-400 font-semibold">
-              Infusyx Services
+              Monarch Tech Solutions
             </span>
             .
           </motion.p>

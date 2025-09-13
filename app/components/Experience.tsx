@@ -61,6 +61,60 @@ const Experience = () => {
     },
   ];
 
+  const projects2 = [
+    {
+      name: "VOCOXP",
+      url: "vocoxp.staffhandler.com/vocoxp/tenant/hpa/panel/",
+      description:
+        "Vocoxp is a full-stack web application designed to streamline tenant management, candidate meeting scheduling, and interview processes. The platform also integrates a secure payment gateway to handle financial transactions, making it a one-stop solution for both administrative and candidate interaction workflows.",
+      icon: Globe,
+      color: "from-purple-500 to-purple-900",
+      achievements: [
+        "Designed and implemented the backend architecture with secure REST APIs.",
+        "Integrated SQL database models for relational data handling.",
+        "Configured and tested the payment gateway integration for smooth checkout.",
+        "Developed custom scheduling logic for candidate meetings and interviews.",
+      ],
+      relatedLinks: [
+        // {
+        //   name: "VOCOXP Bulk Hiring",
+        //   url: "https://vocoxp.staffhandler.com/vocoxp/tenant/bulkhiring/",
+        // },
+        // {
+        //   name: "Russia MBBS Site",
+        //   url: "https://vocoxp.staffhandler.com/vocoxp/location/location_user/",
+        // },
+      ],
+    },
+
+    // {
+    //   name: "Official Company Website",
+    //   url: "infusyx.com",
+    //   description:
+    //     "Built and maintained the official company website using Next.js, Tailwind CSS, and Framer Motion",
+    //   icon: Code,
+    //   color: "from-purple-500 to-pink-500",
+    //   achievements: [
+    //     "Created a professional, responsive UI aligned with branding and company values",
+    //     "Focused on optimizing page load speed and contact form integration",
+    //     "Implemented advanced animations and micro-interactions",
+    //   ],
+    // },
+    // {
+    //   name: "KHATMED University Website",
+    //   url: "khatmeduni.tj/",
+    //   description:
+    //     "Contributed to a multi-language university platform using Next.js, Tailwind, and Headless CMS",
+    //   icon: Users,
+    //   color: "from-emerald-500 to-teal-500",
+    //   achievements: [
+    //     "Implemented components for course listings, academic staff, and campus life gallery",
+    //     "Ensured accessibility, clean structure, and responsive layout for students and faculty",
+    //     "Integrated multi-language support for international students",
+    //   ],
+    // },
+  ];
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -124,13 +178,14 @@ const Experience = () => {
         </motion.div>
 
         {/* Current Role */}
+
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          whileHover={{ scale: 1.02 }}
-          className="bg-white dark:bg-dark-800 rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-300 p-8 mb-12 border-l-4 border-blue-500 relative overflow-hidden"
+          whileHover={{ scale: 1.01 }}
+          className="bg-white dark:bg-dark-800 rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-300 p-8 mb-12 border-l-4 border-purple-800 relative overflow-hidden "
         >
           {/* Animated Background Pattern */}
           <motion.div
@@ -147,23 +202,23 @@ const Experience = () => {
             <Briefcase size={160} />
           </motion.div>
 
-          <div className="relative z-10">
+          <div className="relative z-10 ">
             <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-8">
               <div className="flex items-start space-x-6">
                 <div>
-                  <div className="flex flex-wrap items-center gap-4 mb-4">
+                  <div className="flex flex-wrap  items-center gap-4 mb-4">
                     <motion.div
                       whileHover={{ rotate: 360, scale: 1.1 }}
                       transition={{ duration: 0.5 }}
                       className="p-4 bg-blue-100 dark:bg-blue-900/30 rounded-2xl"
                     >
                       <Briefcase
-                        className="text-blue-600 dark:text-blue-400"
+                        className="text-purple-600 dark:text-purple-600"
                         size={32}
                       />
                     </motion.div>
                     <h3 className="text-3xl font-bold text-gray-900 dark:text-white">
-                      Full-Stack Developer Intern
+                      Full-Stack Developer
                     </h3>
                     <motion.span
                       animate={{ scale: [1, 1.1, 1] }}
@@ -177,6 +232,189 @@ const Experience = () => {
                       />
                       Current
                     </motion.span>
+                  </div>
+                  <p className="text-xl text-purple-600 dark:text-purple-400 font-semibold mb-4">
+                    Monarch Tech Solutions.
+                  </p>
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-8 space-y-3 sm:space-y-0 text-gray-500 dark:text-gray-400">
+                    <motion.div
+                      whileHover={{ x: 5 }}
+                      className="flex items-center space-x-2"
+                    >
+                      <MapPin size={18} />
+                      <span>Office</span>
+                    </motion.div>
+                    <motion.div
+                      whileHover={{ x: 5 }}
+                      className="flex items-center space-x-2"
+                    >
+                      <Calendar size={18} />
+                      <span>August 2025 - Present</span>
+                    </motion.div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Projects */}
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={containerVariants}
+              className="space-y-8"
+            >
+              <h4 className="text-2xl font-bold text-gray-900 dark:text-white mb-8 flex items-center">
+                <Zap className="mr-3 text-yellow-500" size={28} />
+                Key Projects
+              </h4>
+
+              <div className="grid gap-8">
+                {projects2.map((project, index) => {
+                  const IconComponent = project.icon;
+                  return (
+                    <motion.div
+                      key={index}
+                      variants={itemVariants}
+                      whileHover={{
+                        scale: 1.01,
+                        boxShadow: "0 20px 40px rgba(0, 0, 0, 0.1)",
+                      }}
+                      className="bg-gray-50 dark:bg-dark-700 rounded-2xl p-5 hover:bg-gray-100 dark:hover:bg-dark-600 transition-all duration-300 border border-gray-200 dark:border-dark-600 group"
+                    >
+                      <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-6">
+                        <div className="flex items-start space-x-4 mb-4 lg:mb-0">
+                          <div>
+                            <h5 className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-purple-600 dark:group-hover:text-purple-500 transition-colors duration-200">
+                              <motion.div
+                                whileHover={{ rotate: 360 }}
+                                transition={{ duration: 0.5 }}
+                                className={`p-3 bg-gradient-to-r ${project.color} rounded-xl`}
+                              >
+                                <IconComponent
+                                  className="text-white"
+                                  size={24}
+                                />
+                              </motion.div>
+                              <span className="text-center sm:text-left">
+                                {project.name}
+                              </span>
+                            </h5>
+
+                            <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                              {project.description}
+                            </p>
+                          </div>
+                        </div>
+                        <motion.a
+                          href={`https://${project.url}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                          className="inline-flex flex-col items-center   text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium bg-blue-50 dark:bg-blue-900/20 px-4 py-2 rounded-lg hover:bg-blue-100 dark:hover:bg-blue-900/30 transition-all duration-200"
+                        >
+                          <span className="flex items-center gap-1 text-sm">
+                            {" "}
+                            <ExternalLink size={16} /> {project.url}
+                          </span>
+
+                          {project.relatedLinks && (
+                            <div className="pt-1">
+                              <ul className="space-y-2">
+                                {project.relatedLinks.map((link, i) => (
+                                  <li key={i}>
+                                    <motion.a
+                                      href={link.url}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      whileHover={{ x: 4 }}
+                                      className="text-sm text-blue-600 dark:text-blue-400 hove  r:underline gap-1 flex items-center space-x-0"
+                                    >
+                                      <ExternalLink size={14} />
+                                      <span>{link.name}</span>
+                                    </motion.a>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
+                        </motion.a>
+                      </div>
+
+                      <div className="space-y-3">
+                        {project.achievements.map(
+                          (achievement, achievementIndex) => (
+                            <motion.div
+                              key={achievementIndex}
+                              whileHover={{ x: 5 }}
+                              className="flex items-start space-x-3 text-gray-600 dark:text-gray-300"
+                            >
+                              <motion.div
+                                animate={{ scale: [1, 1.2, 1] }}
+                                transition={{
+                                  duration: 2,
+                                  repeat: Infinity,
+                                  delay: achievementIndex * 0.5,
+                                }}
+                                className={`w-2 h-2 bg-gradient-to-r ${project.color} rounded-full mt-2 flex-shrink-0`}
+                              />
+                              <span className="text-sm leading-relaxed">
+                                {achievement}
+                              </span>
+                            </motion.div>
+                          )
+                        )}
+                      </div>
+                    </motion.div>
+                  );
+                })}
+              </div>
+            </motion.div>
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          whileHover={{ scale: 1.01 }}
+          className="bg-white dark:bg-dark-800 rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-300 p-8 mb-12 border-l-4 border-blue-500 relative overflow-hidden "
+        >
+          {/* Animated Background Pattern */}
+          <motion.div
+            animate={{
+              rotate: [0, 360],
+            }}
+            transition={{
+              duration: 30,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+            className="absolute top-0 right-0 w-40 h-40 opacity-5"
+          >
+            <Briefcase size={160} />
+          </motion.div>
+
+          <div className="relative z-10 ">
+            <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-8">
+              <div className="flex items-start space-x-6">
+                <div>
+                  <div className="flex flex-wrap  items-center gap-4 mb-4">
+                    <motion.div
+                      whileHover={{ rotate: 360, scale: 1.1 }}
+                      transition={{ duration: 0.5 }}
+                      className="p-4 bg-blue-100 dark:bg-blue-900/30 rounded-2xl"
+                    >
+                      <Briefcase
+                        className="text-blue-600 dark:text-blue-400"
+                        size={32}
+                      />
+                    </motion.div>
+                    <h3 className="text-3xl font-bold text-gray-900 dark:text-white">
+                      Full-Stack Developer Intern
+                    </h3>
                   </div>
                   <p className="text-xl text-blue-600 dark:text-blue-400 font-semibold mb-4">
                     Infusyx Services
@@ -194,7 +432,7 @@ const Experience = () => {
                       className="flex items-center space-x-2"
                     >
                       <Calendar size={18} />
-                      <span>Dec 2024 - Present</span>
+                      <span>December 2024 - June 2025</span>
                     </motion.div>
                   </div>
                 </div>
@@ -225,7 +463,7 @@ const Experience = () => {
                         scale: 1.02,
                         boxShadow: "0 20px 40px rgba(0, 0, 0, 0.1)",
                       }}
-                      className="bg-gray-50 dark:bg-dark-700 rounded-2xl p-8 hover:bg-white dark:hover:bg-dark-600 transition-all duration-300 border border-gray-200 dark:border-dark-600 group"
+                      className="bg-gray-50 dark:bg-dark-700 rounded-2xl p-5 hover:bg-white dark:hover:bg-dark-600 transition-all duration-300 border border-gray-200 dark:border-dark-600 group"
                     >
                       <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-6">
                         <div className="flex items-start space-x-4 mb-4 lg:mb-0">
