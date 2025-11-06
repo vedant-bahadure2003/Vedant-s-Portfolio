@@ -23,8 +23,8 @@ const Projects = () => {
       description:
         "An innovative application that bridges communication gaps by translating sign language in real-time using advanced machine learning technologies.",
       icon: Brain,
-      projectUrl: "https://github.com/vedant-bahadure2003/SignEase",
-
+      projectUrl: "https://signease-nine.vercel.app/",
+      githubUrl: "https://github.com/vedant-bahadure2003/SignEase",
       color: "blue",
       gradient: "from-blue-500 via-purple-500 to-pink-500",
       technologies: [
@@ -48,7 +48,8 @@ const Projects = () => {
       description:
         "A full-stack medical finder platform connecting users with nearby medical stores stocking requested medicines, with geolocation-powered search and real-time updates.",
       icon: Pill, // Replace with the appropriate icon you're using
-      projectUrl: "https://github.com/vedant-bahadure2003/MediFind", // Update URL if different
+      projectUrl: "https://medi-find-ten.vercel.app/", // Update URL if different
+      githubUrl: "https://github.com/vedant-bahadure2003/MediFind",
       color: "green",
       gradient: "from-green-500 via-emerald-500 to-teal-500",
       technologies: [
@@ -77,8 +78,8 @@ const Projects = () => {
       description:
         "A comprehensive health and wellness platform that provides personalized dietary recommendations based on individual health metrics and goals.",
       icon: Utensils,
-      projectUrl: "https://github.com/vedant-bahadure2003/BalenceBite",
-
+      projectUrl: "https://balence-bite.vercel.app/",
+      githubUrl: "https://github.com/vedant-bahadure2003/BalenceBite",
       color: "emerald",
       gradient: "from-emerald-500 via-teal-500 to-cyan-500",
       technologies: ["HTML", "CSS", "Tailwind CSS", "JavaScript", "React.js"],
@@ -98,7 +99,7 @@ const Projects = () => {
         "A community-focused platform designed to help users discover, organize, and participate in local events with an emphasis on user experience.",
       icon: Calendar,
       projectUrl: "#",
-
+      githubUrl: "#",
       color: "purple",
       gradient: "from-purple-500 via-pink-500 to-rose-500",
       technologies: ["HTML", "CSS", "Bootstrap", "JavaScript", "React.js"],
@@ -374,16 +375,19 @@ const Projects = () => {
                       <span>View Project</span>
                     </motion.a>
 
-                    <motion.button
-                      whileHover={{ scale: 1.05, rotate: 5 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="px-4 py-3 border-2 border-gray-300 dark:border-dark-500 text-gray-700 dark:text-gray-300 rounded-xl hover:bg-gray-50 dark:hover:bg-dark-600 hover:border-gray-400 dark:hover:border-dark-400 transition-all duration-300"
+                    <Link
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
-                      <Link href="https://github.com/vedant-bahadure2003">
-                        {" "}
+                      <motion.button
+                        whileHover={{ scale: 1.05, rotate: 5 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="px-4 py-3 border-2 border-gray-300 dark:border-dark-500 text-gray-700 dark:text-gray-300 rounded-xl hover:bg-gray-50 dark:hover:bg-dark-600 hover:border-gray-400 dark:hover:border-dark-400 transition-all duration-300"
+                      >
                         <Github size={18} />
-                      </Link>
-                    </motion.button>
+                      </motion.button>
+                    </Link>
                   </div>
                 </div>
               </motion.div>
