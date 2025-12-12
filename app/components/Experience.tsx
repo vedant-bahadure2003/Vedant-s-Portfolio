@@ -413,7 +413,7 @@ const Experience = () => {
                       />
                     </motion.div>
                     <h3 className="text-3xl font-bold text-gray-900 dark:text-white">
-                      Full-Stack Developer Intern
+                      Full-Stack Developer
                     </h3>
                   </div>
                   <p className="text-xl text-blue-600 dark:text-blue-400 font-semibold mb-4">
